@@ -19,7 +19,6 @@ Les sources et leurs priorités sont définies dans [config/sources.json](config
 
 Les catalogues évoluent. Une source peut être indisponible temporairement ou modifier son URL ; le rapport de génération indique les échecs.
 
-**Kosovo :** aucun flux national Kosovo dédié n'a été identifié dans le catalogue IPTV-EPG utilisé au démarrage. Des chaînes kosovares peuvent être présentes dans d'autres guides, mais leur couverture doit être vérifiée avant d'ajouter une source.
 
 ## Corriger les correspondances entre chaînes
 
