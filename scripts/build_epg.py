@@ -10,10 +10,11 @@ import gzip
 import json
 import logging
 import os
+import re
 import sys
 import urllib.request
 import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 from zipfile import ZipFile
@@ -43,6 +44,22 @@ def decode_payload(payload: bytes) -> bytes:
     return payload
 
 
+def parse_xmltv_datetime(value: str) -> datetime:
+    """Parse an XMLTV timestamp, including its optional numeric UTC offset."""
+    match = re.match(r"^(\\d{14})(?:\\s*([+-])(\\d{2})(\\d{2}))?", value.strip())
+    if not match:
+        raise ValueError(f"Invalid XMLTV timestamp: {value}")
+    parsed = datetime.strptime(match.group(1), "%Y%m%d%H%M%S")
+    if match.group(2):
+        minutes = int(match.group(3)) * 60 + int(match.group(4))
+        if match.group(2) == "-":
+            minutes = -minutes
+        parsed = parsed.replace(tzinfo=timezone(timedelta(minutes=minutes)))
+    else:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+    return parsed.astimezone(timezone.utc)
+
+
 def fetch_source(source: dict[str, Any], settings: dict[str, Any]) -> dict[str, Any]:
     request = urllib.request.Request(
         source["url"],
@@ -62,6 +79,14 @@ def fetch_source(source: dict[str, Any], settings: dict[str, Any]) -> dict[str, 
         raise ValueError(f"Unexpected XML root element: {root.tag}")
     channels = root.findall("channel")
     programmes = root.findall("programme")
+    days = max(1, int(settings.get("programme_days", 5)))
+    now = datetime.now(timezone.utc)
+    cutoff = now + timedelta(days=days)
+    programmes = [
+        programme for programme in programmes
+        if parse_xmltv_datetime(programme.get("stop", "")) > now
+        and parse_xmltv_datetime(programme.get("start", "")) < cutoff
+    ]
     if not channels and not programmes:
         raise ValueError("XMLTV document contains no channels or programmes")
     return {
