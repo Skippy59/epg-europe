@@ -180,8 +180,15 @@ def write_xmltv(root: ET.Element, destination: Path) -> None:
     ET.indent(root, space="  ")
     xml_bytes = ET.tostring(root, encoding="utf-8", xml_declaration=True)
     destination.parent.mkdir(parents=True, exist_ok=True)
-    with gzip.open(destination, "wb", compresslevel=9, mtime=0) as handle:
-        handle.write(xml_bytes)
+    with destination.open("wb") as raw_handle:
+        with gzip.GzipFile(
+            filename="",
+            mode="wb",
+            fileobj=raw_handle,
+            compresslevel=9,
+            mtime=0,
+        ) as handle:
+            handle.write(xml_bytes)
 
 
 def main() -> int:
