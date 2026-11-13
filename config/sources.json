@@ -1,0 +1,307 @@
+{
+  "settings": {
+    "request_timeout_seconds": 90,
+    "max_parallel_downloads": 6,
+    "minimum_successful_sources": 2,
+    "user_agent": "EPG-Europe/1.0 (+https://github.com/Skippy59/epg-europe)"
+  },
+  "sources": [
+    {
+      "id": "xmltvfr-complete",
+      "name": "XMLTV FR - Guide complet",
+      "country": "FR",
+      "region": "Western Europe",
+      "url": "https://xmltvfr.fr/xmltv/xmltv.xml.gz",
+      "priority": 1,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-al",
+      "name": "IPTV-EPG - Albania",
+      "country": "AL",
+      "region": "Balkans",
+      "url": "https://iptv-epg.org/files/epg-al.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-be",
+      "name": "IPTV-EPG - Belgium",
+      "country": "BE",
+      "region": "Western Europe",
+      "url": "https://iptv-epg.org/files/epg-be.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-ba",
+      "name": "IPTV-EPG - Bosnia and Herzegovina",
+      "country": "BA",
+      "region": "Balkans",
+      "url": "https://iptv-epg.org/files/epg-ba.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-bg",
+      "name": "IPTV-EPG - Bulgaria",
+      "country": "BG",
+      "region": "Eastern Europe",
+      "url": "https://iptv-epg.org/files/epg-bg.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-hr",
+      "name": "IPTV-EPG - Croatia",
+      "country": "HR",
+      "region": "Balkans",
+      "url": "https://iptv-epg.org/files/epg-hr.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-cz",
+      "name": "IPTV-EPG - Czechia",
+      "country": "CZ",
+      "region": "Central Europe",
+      "url": "https://iptv-epg.org/files/epg-cz.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-dk",
+      "name": "IPTV-EPG - Denmark",
+      "country": "DK",
+      "region": "Northern Europe",
+      "url": "https://iptv-epg.org/files/epg-dk.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-fi",
+      "name": "IPTV-EPG - Finland",
+      "country": "FI",
+      "region": "Northern Europe",
+      "url": "https://iptv-epg.org/files/epg-fi.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-fr",
+      "name": "IPTV-EPG - France",
+      "country": "FR",
+      "region": "Western Europe",
+      "url": "https://iptv-epg.org/files/epg-fr.xml",
+      "priority": 20,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-de",
+      "name": "IPTV-EPG - Germany",
+      "country": "DE",
+      "region": "Western Europe",
+      "url": "https://iptv-epg.org/files/epg-de.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-gr",
+      "name": "IPTV-EPG - Greece",
+      "country": "GR",
+      "region": "Southern Europe",
+      "url": "https://iptv-epg.org/files/epg-gr.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-hu",
+      "name": "IPTV-EPG - Hungary",
+      "country": "HU",
+      "region": "Central Europe",
+      "url": "https://iptv-epg.org/files/epg-hu.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-is",
+      "name": "IPTV-EPG - Iceland",
+      "country": "IS",
+      "region": "Northern Europe",
+      "url": "https://iptv-epg.org/files/epg-is.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-it",
+      "name": "IPTV-EPG - Italy",
+      "country": "IT",
+      "region": "Southern Europe",
+      "url": "https://iptv-epg.org/files/epg-it.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-lv",
+      "name": "IPTV-EPG - Latvia",
+      "country": "LV",
+      "region": "Northern Europe",
+      "url": "https://iptv-epg.org/files/epg-lv.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-lt",
+      "name": "IPTV-EPG - Lithuania",
+      "country": "LT",
+      "region": "Northern Europe",
+      "url": "https://iptv-epg.org/files/epg-lt.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-lu",
+      "name": "IPTV-EPG - Luxembourg",
+      "country": "LU",
+      "region": "Western Europe",
+      "url": "https://iptv-epg.org/files/epg-lu.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-mk",
+      "name": "IPTV-EPG - North Macedonia",
+      "country": "MK",
+      "region": "Balkans",
+      "url": "https://iptv-epg.org/files/epg-mk.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-me",
+      "name": "IPTV-EPG - Montenegro",
+      "country": "ME",
+      "region": "Balkans",
+      "url": "https://iptv-epg.org/files/epg-me.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-nl",
+      "name": "IPTV-EPG - Netherlands",
+      "country": "NL",
+      "region": "Western Europe",
+      "url": "https://iptv-epg.org/files/epg-nl.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-no",
+      "name": "IPTV-EPG - Norway",
+      "country": "NO",
+      "region": "Northern Europe",
+      "url": "https://iptv-epg.org/files/epg-no.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-pl",
+      "name": "IPTV-EPG - Poland",
+      "country": "PL",
+      "region": "Central Europe",
+      "url": "https://iptv-epg.org/files/epg-pl.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-pt",
+      "name": "IPTV-EPG - Portugal",
+      "country": "PT",
+      "region": "Southern Europe",
+      "url": "https://iptv-epg.org/files/epg-pt.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-ro",
+      "name": "IPTV-EPG - Romania",
+      "country": "RO",
+      "region": "Eastern Europe",
+      "url": "https://iptv-epg.org/files/epg-ro.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-rs",
+      "name": "IPTV-EPG - Serbia",
+      "country": "RS",
+      "region": "Balkans",
+      "url": "https://iptv-epg.org/files/epg-rs.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-si",
+      "name": "IPTV-EPG - Slovenia",
+      "country": "SI",
+      "region": "Balkans",
+      "url": "https://iptv-epg.org/files/epg-si.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-es",
+      "name": "IPTV-EPG - Spain",
+      "country": "ES",
+      "region": "Southern Europe",
+      "url": "https://iptv-epg.org/files/epg-es.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-se",
+      "name": "IPTV-EPG - Sweden",
+      "country": "SE",
+      "region": "Northern Europe",
+      "url": "https://iptv-epg.org/files/epg-se.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-ch",
+      "name": "IPTV-EPG - Switzerland",
+      "country": "CH",
+      "region": "Western Europe",
+      "url": "https://iptv-epg.org/files/epg-ch.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-tr",
+      "name": "IPTV-EPG - Turkey",
+      "country": "TR",
+      "region": "Southern Europe",
+      "url": "https://iptv-epg.org/files/epg-tr.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-gb",
+      "name": "IPTV-EPG - United Kingdom",
+      "country": "GB",
+      "region": "Northern Europe",
+      "url": "https://iptv-epg.org/files/epg-gb.xml",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "iptv-epg-ua",
+      "name": "IPTV-EPG - Ukraine",
+      "country": "UA",
+      "region": "Eastern Europe",
+      "url": "https://iptv-epg.org/files/epg-ua.xml",
+      "priority": 10,
+      "enabled": true
+    }
+  ]
+}
