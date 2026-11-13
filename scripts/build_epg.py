@@ -46,7 +46,7 @@ def decode_payload(payload: bytes) -> bytes:
 
 def parse_xmltv_datetime(value: str) -> datetime:
     """Parse an XMLTV timestamp, including its optional numeric UTC offset."""
-    match = re.match(r"^(\\d{14})(?:\\s*([+-])(\\d{2})(\\d{2}))?", value.strip())
+    match = re.match(r"^(\d{14})(?:\s*([+-])(\d{2})(\d{2}))?", value.strip())
     if not match:
         raise ValueError(f"Invalid XMLTV timestamp: {value}")
     parsed = datetime.strptime(match.group(1), "%Y%m%d%H%M%S")
