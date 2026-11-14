@@ -60,7 +60,7 @@ Après modification, enregistrer le fichier dans GitHub : le workflow se relance
 
 ## Mise à jour automatique
 
-GitHub Actions lance une génération deux fois par jour (04:17 et 16:17 UTC), ainsi qu'après une modification des fichiers de configuration ou du code.
+GitHub Actions lance une génération une fois par jour (04:17 UTC), ainsi qu'après une modification des fichiers de configuration ou du code.
 
 Le workflow exige au minimum deux sources valides. Si trop de sources échouent, la génération s'arrête et la version déjà publiée n'est pas remplacée.
 
