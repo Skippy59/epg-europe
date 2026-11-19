@@ -157,7 +157,13 @@ def build_documents(
                 continue
             candidate = copy.deepcopy(original)
             candidate.set("channel", new_id)
-            key = (new_id, start, stop)
+            # Remove optional, comparatively heavy metadata not needed by the EPG apps.
+            for child in list(candidate):
+                if child.tag in {"icon", "rating", "credits", "review", "audio", "video"}:
+                    candidate.remove(child)
+            # A channel can only have one programme starting at a given instant.
+            # Normalize timestamps so equivalent UTC offsets deduplicate correctly.
+            key = (new_id, parse_xmltv_datetime(start).isoformat())
             current = programmes.get(key)
             if current is None or priority < current[0]:
                 programmes[key] = (priority, candidate)
@@ -201,8 +207,8 @@ def build_documents(
     return full, filtered, stats
 
 
-def write_xmltv(root: ET.Element, destination: Path) -> None:
-    ET.indent(root, space="  ")
+def write_xmltv(root: ET.Element, destination: Path) -> dict[str, int]:
+    # Compact XML avoids pretty-print whitespace and reduces parsing overhead.
     xml_bytes = ET.tostring(root, encoding="utf-8", xml_declaration=True)
     destination.parent.mkdir(parents=True, exist_ok=True)
     with destination.open("wb") as raw_handle:
@@ -214,6 +220,10 @@ def write_xmltv(root: ET.Element, destination: Path) -> None:
             mtime=0,
         ) as handle:
             handle.write(xml_bytes)
+    return {
+        "uncompressed_bytes": len(xml_bytes),
+        "compressed_bytes": destination.stat().st_size,
+    }
 
 
 def main() -> int:
@@ -269,8 +279,10 @@ def main() -> int:
     full, filtered, stats = build_documents(fetched, overrides)
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    write_xmltv(full, output_dir / "epg.xml.gz")
-    write_xmltv(filtered, output_dir / "epg-filtered.xml.gz")
+    full_sizes = write_xmltv(full, output_dir / "epg.xml.gz")
+    filtered_sizes = write_xmltv(filtered, output_dir / "epg-filtered.xml.gz")
+    LOG.info("Full feed sizes: %s", json.dumps(full_sizes))
+    LOG.info("Filtered feed sizes: %s", json.dumps(filtered_sizes))
 
     source_status = []
     for item in fetched:
@@ -297,6 +309,11 @@ def main() -> int:
         "sources_succeeded": len(fetched),
         "sources_failed": len(failures),
         **stats,
+        "programme_days": max(1, int(settings.get("programme_days", 4))),
+        "output_sizes": {
+            "full": full_sizes,
+            "filtered": filtered_sizes,
+        },
         "sources": sorted(source_status, key=lambda x: x["id"]),
     }
     (output_dir / "status.json").write_text(
