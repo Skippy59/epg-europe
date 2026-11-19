@@ -309,7 +309,7 @@
       "name": "IPTV-org - Kosovo",
       "country": "XK",
       "region": "Balkans",
-      "url": "https://iptv-org.github.io/epg/guides/xk/tvim.tv.epg.xml",
+      "url": "https://iptv-org.github.io/epg/guides/xk/tvim.tv.epg.xml.gz",
       "priority": 10,
       "enabled": true
     }
