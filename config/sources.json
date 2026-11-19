@@ -4,7 +4,7 @@
     "max_parallel_downloads": 6,
     "minimum_successful_sources": 2,
     "user_agent": "EPG-Europe/1.0 (+https://github.com/Skippy59/epg-europe)",
-    "programme_days": 5
+    "programme_days": 4
   },
   "sources": [
     {
