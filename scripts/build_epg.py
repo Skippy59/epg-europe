@@ -183,7 +183,7 @@ def build_documents(
         )
         for channel_id in sorted(channels):
             if selected_channels is None or channel_id in selected_channels:
-                tv.append(copy.deepcopy(channels[channel_id][1]))
+                tv.append(channels[channel_id][1])
         ordered = sorted(
             programmes.values(),
             key=lambda pair: (
@@ -193,7 +193,7 @@ def build_documents(
         )
         for _, programme in ordered:
             if selected_channels is None or programme.get("channel") in selected_channels:
-                tv.append(copy.deepcopy(programme))
+                tv.append(programme)
         return tv
 
     channels_with_programmes = {key[0] for key in programmes}
